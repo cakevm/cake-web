@@ -1,0 +1,26 @@
+[package]
+name = "cake-web-base"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-db.workspace = true
+cake-web-user.workspace = true
+cake-web-jwt.workspace = true
+cake-web-websocket.workspace = true
+cake-web-state.workspace = true
+cake-web-http.workspace = true
+
+eyre.workspace = true
+
+# web
+axum.workspace = true
+utoipa.workspace = true
+utoipa-swagger-ui.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+
+# loom
+defi-blockchain.workspace = true

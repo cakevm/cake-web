@@ -1,0 +1,13 @@
+[package]
+name = "cake-web-db"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-utils.workspace = true
+diesel.workspace = true
+diesel-async.workspace = true
+bb8.workspace = true
+thiserror.workspace = true

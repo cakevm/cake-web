@@ -1,0 +1,26 @@
+[package]
+name = "cake-web-http"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-utils.workspace = true
+cake-web-user.workspace = true
+cake-web-db.workspace = true
+cake-web-state.workspace = true
+cake-web-dto.workspace = true
+
+
+tracing.workspace = true
+axum.workspace = true
+axum-extra.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+utoipa.workspace = true
+
+alloy-primitives.workspace = true
+revm.workspace = true
+
+defi-entities.workspace = true

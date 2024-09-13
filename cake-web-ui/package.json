@@ -1,0 +1,99 @@
+{
+  "name": "cake-web-ui",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "nx run cake-web-ui:serve",
+    "build": "tsc && nx vite:build",
+    "preview": "nx vite:preview",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "typecheck": "tsc --noEmit",
+    "generate-client": "openapi-ts"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "@reduxjs/toolkit": "^2.2.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.7.2",
+    "capitalize-the-first-letter": "^1.0.8",
+    "chart.js": "^4.0.1",
+    "dayjs": "^1.11.7",
+    "ethers": "^6.13.1",
+    "moment": "^2.30.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.0.1",
+    "react-daisyui": "^5.0.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.2",
+    "react-router-dom": "^6.25.0",
+    "react-tailwindcss-datepicker": "^1.6.0",
+    "react-use-websocket": "^4.8.1",
+    "rxjs": "^7.8.1",
+    "theme-change": "^2.2.0",
+    "web-vitals": "^2.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srobbin01/tailwind-dashboard-template-dashwind"
+  },
+  "keywords": [],
+  "author": "srobbin01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srobbin01/tailwind-dashboard-template-dashwind/issues"
+  },
+  "homepage": "",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.49.0",
+    "@nx/vite": "^19.5.3",
+    "@nx/web": "19.5.3",
+    "@tailwindcss/typography": "^0.5.8",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^1.3.1",
+    "autoprefixer": "^10.4.13",
+    "daisyui": "^4.12.10",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.8",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "nx": "19.5.3",
+    "postcss": "^8.4.37",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.4.2",
+    "vite": "^5.3.4",
+    "vitest": "^1.3.1"
+  },
+  "nx": {}
+}

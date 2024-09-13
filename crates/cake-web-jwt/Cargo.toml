@@ -1,0 +1,23 @@
+[package]
+name = "cake-web-jwt"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-user.workspace = true
+cake-web-db.workspace = true
+cake-web-utils.workspace = true
+cake-web-state.workspace = true
+
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+axum.workspace = true
+chrono.workspace = true
+diesel.workspace = true
+diesel-async.workspace = true
+utoipa.workspace = true
+jsonwebtoken.workspace = true
+axum-extra.workspace = true

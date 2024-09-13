@@ -1,0 +1,54 @@
+[package]
+name = "cake-web"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-db.workspace = true
+cake-web-state.workspace = true
+cake-web-base.workspace = true
+cake-web-actor.workspace = true
+
+chrono.workspace = true
+
+# async
+tokio.workspace = true
+tokio-util.workspace = true
+
+# config
+dotenv.workspace = true
+clap.workspace = true
+
+# tracing + error handling
+tracing.workspace = true
+tracing-subscriber.workspace = true
+eyre.workspace = true
+
+# web
+axum.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+
+alloy.workspace = true
+
+# reth
+reth.workspace = true
+reth-node-ethereum.workspace = true
+reth-execution-types.workspace = true
+reth-exex.workspace = true
+reth-node-api.workspace = true
+reth-primitives.workspace = true
+reth-tracing.workspace = true
+reth-rpc-types-compat.workspace = true
+
+# loom
+loom-actors.workspace = true
+loom-utils.workspace = true
+defi-actors.workspace = true
+defi-blockchain.workspace = true
+defi-events.workspace = true
+defi-types.workspace = true
+debug-provider.workspace = true
+loom-topology.workspace = true

@@ -1,0 +1,20 @@
+[package]
+name = "cake-web-user"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+cake-web-utils.workspace = true
+cake-web-db.workspace = true
+cake-web-state.workspace = true
+
+axum.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+diesel.workspace = true
+diesel-async.workspace = true
+diesel-derive-enum.workspace = true
+serde.workspace = true
+utoipa.workspace = true

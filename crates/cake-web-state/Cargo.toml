@@ -1,0 +1,11 @@
+[package]
+name = "cake-web-state"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+exclude.workspace = true
+
+[dependencies]
+
+cake-web-db.workspace = true
+defi-blockchain.workspace = true
