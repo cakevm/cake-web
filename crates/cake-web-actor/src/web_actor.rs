@@ -68,12 +68,12 @@ where
     Router: From<Router<S>>,
 {
     fn start(&self) -> ActorResult {
-        let task = tokio::task::spawn(start_web_server_worker(
+        let task = tokio::task::Builder::new().name(self.name()).spawn(start_web_server_worker(
             self.host.clone(),
             self.router.clone(),
             self.bc.clone().unwrap(),
             self.shutdown_token.clone(),
-        ));
+        ))?;
         Ok(vec![task])
     }
 

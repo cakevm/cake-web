@@ -33,7 +33,7 @@ uuid = { version = "1.8.0", features = ["v4", "serde"] }
 dotenv = "0.15.0"
 
 # async
-tokio = { version = "1.36.0", features = ["full"] }
+tokio = { version = "1.36.0", features = ["full", "tracing"] }
 tokio-util = "0.7.11"
 async-trait = "0.1.80"
 futures-util = "0.3.30"
@@ -69,7 +69,7 @@ tower = { version = "0.5.1", features = ["util"] }
 tower-http = { version = "0.5.0", features = ["fs", "trace"] }
 
 # alloy
-alloy = { version = "0.3.3", features = ["full"] }
+alloy = { version = "0.3.5", features = ["full"] }
 alloy-primitives = { version = "0.8.0", features = ["serde"] }
 alloy-chains = "0.1.23"
 alloy-rlp = "0.3.4"
@@ -80,35 +80,35 @@ alloy-sol-types = { version = "0.8.0", features = ["json"] }
 alloy-sol-type-parser = { version = "0.8.0" }
 alloy-sol-macro = { version = "0.8.0", features = ["json"] }
 
-alloy-contract = { version = "0.3.3", default-features = false }
-alloy-rpc-client = { version = "0.3.3", default-features = false, features = ["ws", "reqwest", "pubsub"] }
-alloy-rpc-types = { version = "0.3.3", default-features = false, features = ["eth"] }
-alloy-rpc-types-anvil = { version = "0.3.3", default-features = false }
-alloy-rpc-types-trace = { version = "0.3.3", default-features = false }
-alloy-rpc-types-engine = { version = "0.3.3", default-features = false }
-alloy-rpc-types-eth = { version = "0.3.3", default-features = false }
-alloy-genesis = { version = "0.3.3", default-features = false }
-alloy-node-bindings = { version = "0.3.3", default-features = false }
-alloy-provider = { version = "0.3.3", default-features = false, features = [
+alloy-contract = { version = "0.3.5", default-features = false }
+alloy-rpc-client = { version = "0.3.5", default-features = false, features = ["ws", "reqwest", "pubsub"] }
+alloy-rpc-types = { version = "0.3.5", default-features = false, features = ["eth"] }
+alloy-rpc-types-anvil = { version = "0.3.5", default-features = false }
+alloy-rpc-types-trace = { version = "0.3.5", default-features = false }
+alloy-rpc-types-engine = { version = "0.3.5", default-features = false }
+alloy-rpc-types-eth = { version = "0.3.5", default-features = false }
+alloy-genesis = { version = "0.3.5", default-features = false }
+alloy-node-bindings = { version = "0.3.5", default-features = false }
+alloy-provider = { version = "0.3.5", default-features = false, features = [
     "reqwest", "pubsub", "ws", "ipc", "anvil-api", "debug-api", "trace-api", "anvil-node"
 ] }
-alloy-eips = { version = "0.3.3", default-features = false }
-alloy-signer = { version = "0.3.3", default-features = false }
-alloy-signer-local = { version = "0.3.3", default-features = false }
-alloy-network = { version = "0.3.3", default-features = false }
-alloy-consensus = { version = "0.3.3", default-features = false }
-alloy-transport = { version = "0.3.3", default-features = false }
-alloy-pubsub = { version = "0.3.3", default-features = false }
-alloy-transport-ws = { version = "0.3.3", default-features = false }
-alloy-transport-ipc = { version = "0.3.3", default-features = false }
-alloy-transport-http = { version = "0.3.3", default-features = false }
-alloy-json-rpc = { version = "0.3.3", default-features = false }
+alloy-eips = { version = "0.3.5", default-features = false }
+alloy-signer = { version = "0.3.5", default-features = false }
+alloy-signer-local = { version = "0.3.5", default-features = false }
+alloy-network = { version = "0.3.5", default-features = false }
+alloy-consensus = { version = "0.3.5", default-features = false }
+alloy-transport = { version = "0.3.5", default-features = false }
+alloy-pubsub = { version = "0.3.5", default-features = false }
+alloy-transport-ws = { version = "0.3.5", default-features = false }
+alloy-transport-ipc = { version = "0.3.5", default-features = false }
+alloy-transport-http = { version = "0.3.5", default-features = false }
+alloy-json-rpc = { version = "0.3.5", default-features = false }
 
 # reth
 reth = { git = "https://github.com/paradigmxyz/reth" }
 reth-db = { git = "https://github.com/paradigmxyz/reth" }
 reth-primitives = { git = "https://github.com/paradigmxyz/reth" }
-reth-provider = { git = "https://github.com/paradigmxyz/reth" , features = ["test-utils"]}
+reth-provider = { git = "https://github.com/paradigmxyz/reth", features = ["test-utils"]}
 reth-revm = { git = "https://github.com/paradigmxyz/reth" }
 reth-evm = { git = "https://github.com/paradigmxyz/reth" }
 reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth" }
