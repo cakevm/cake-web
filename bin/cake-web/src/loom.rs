@@ -1,26 +1,22 @@
-use std::collections::HashMap;
-use std::env;
 use std::future::Future;
 use std::sync::Arc;
 
-use alloy::hex;
 use alloy::network::primitives::BlockTransactions;
 use alloy::network::Ethereum;
-use alloy::primitives::{Address, TxHash, U256};
+use alloy::primitives::{map::HashMap, Address, TxHash, U256};
 use alloy::providers::Provider;
 use alloy::rpc::types::{Block, BlockTransactionsKind};
 use alloy::transports::Transport;
 use axum::Router;
-use chrono::Utc;
 use eyre::OptionExt;
 use reth::primitives::BlockNumHash;
 use reth::revm::db::states::StorageSlot;
 use reth::revm::db::{BundleAccount, StorageWithOriginalValues};
+use reth::rpc::eth::EthTxBuilder;
 use reth::transaction_pool::{BlobStore, Pool, TransactionOrdering, TransactionPool, TransactionValidator};
 use reth_execution_types::Chain;
 use reth_exex::{ExExContext, ExExEvent, ExExNotification};
 use reth_node_api::FullNodeComponents;
-use reth_primitives::IntoRecoveredTransaction;
 use reth_tracing::tracing::{error, info};
 use tokio::select;
 
@@ -31,6 +27,7 @@ use defi_actors::{BlockchainActors, NodeBlockActorConfig};
 use defi_blockchain::Blockchain;
 use defi_events::{BlockHeader, BlockLogs, BlockStateUpdate, MessageBlockHeader, MessageMempoolDataUpdate, NodeMempoolDataUpdate};
 use defi_types::{ChainParameters, GethStateUpdate, MempoolTx};
+use futures_util::stream::StreamExt;
 use loom_actors::Broadcaster;
 use loom_topology::{BroadcasterConfig, EncoderConfig, TopologyConfig};
 use loom_utils::reth_types::append_all_matching_block_logs_sealed;
@@ -67,7 +64,7 @@ async fn process_chain(
         let block_hash_num = BlockNumHash { number, hash };
 
         info!(block_number=?block_hash_num.number, block_hash=?block_hash_num.hash, "Processing block");
-        match reth_rpc_types_compat::block::from_block(
+        match reth_rpc_types_compat::block::from_block::<EthTxBuilder>(
             sealed_block.clone().unseal(),
             sealed_block.difficulty,
             BlockTransactionsKind::Full,
@@ -138,7 +135,7 @@ async fn process_chain(
 async fn loom_exex<Node: FullNodeComponents>(mut ctx: ExExContext<Node>, bc: Blockchain) -> eyre::Result<()> {
     info!("Loom ExEx is started");
 
-    while let Some(exex_notification) = ctx.notifications.recv().await {
+    while let Some(exex_notification) = ctx.notifications.next().await {
         match &exex_notification {
             ExExNotification::ChainCommitted { new } => {
                 info!(committed_chain = ?new.range(), "Received commit");
@@ -201,7 +198,7 @@ where
                 if let Some(tx_notification) = tx_notification {
                     let recovered_tx = tx_notification.transaction.to_recovered_transaction();
                     let tx_hash: TxHash = recovered_tx.hash;
-                    let tx : alloy::rpc::types::eth::Transaction = reth_rpc_types_compat::transaction::from_recovered(recovered_tx).inner;
+                    let tx : alloy::rpc::types::eth::Transaction = reth_rpc_types_compat::transaction::from_recovered::<EthTxBuilder>(recovered_tx).inner;
                     let update_msg: MessageMempoolDataUpdate = MessageMempoolDataUpdate::new_with_source(NodeMempoolDataUpdate { tx_hash, mempool_tx: MempoolTx { tx: Some(tx), ..MempoolTx::default() } }, "exex".to_string());
                     if let Err(e) =  mempool_tx.send(update_msg).await {
                         error!(error=?e.to_string(), "mempool_tx.send");

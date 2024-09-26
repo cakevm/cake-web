@@ -5,7 +5,6 @@ use axum::{
 };
 use cake_web_dto::{BlockHeader, WebSocketMessage};
 use cake_web_state::AppState;
-use defi_events::MarketEvents;
 use std::net::SocketAddr;
 use tracing::{error, warn};
 

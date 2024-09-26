@@ -33,7 +33,7 @@ uuid = { version = "1.8.0", features = ["v4", "serde"] }
 dotenv = "0.15.0"
 
 # async
-tokio = { version = "1.36.0", features = ["full", "tracing"] }
+tokio = { version = "1.36.0", features = ["full"] }
 tokio-util = "0.7.11"
 async-trait = "0.1.80"
 futures-util = "0.3.30"
@@ -66,43 +66,43 @@ garde = { version = "0.20.0", features = ["full"] }
 jsonwebtoken = "9.3.0"
 headers = "0.4"
 tower = { version = "0.5.1", features = ["util"] }
-tower-http = { version = "0.5.0", features = ["fs", "trace"] }
+tower-http = { version = "0.6.1", features = ["fs", "trace"] }
 
 # alloy
-alloy = { version = "0.3.5", features = ["full"] }
-alloy-primitives = { version = "0.8.0", features = ["serde"] }
+alloy = { version = "0.3.6", features = ["full"] }
+alloy-primitives = { version = "0.8.4", features = ["serde"] }
 alloy-chains = "0.1.23"
 alloy-rlp = "0.3.4"
 alloy-trie = "0.5.1"
 
-alloy-dyn-abi = { version = "0.8.0", features = ["json"] }
-alloy-sol-types = { version = "0.8.0", features = ["json"] }
-alloy-sol-type-parser = { version = "0.8.0" }
-alloy-sol-macro = { version = "0.8.0", features = ["json"] }
+alloy-dyn-abi = { version = "0.8.4", features = ["json"] }
+alloy-sol-types = { version = "0.8.4", features = ["json"] }
+alloy-sol-type-parser = { version = "0.8.4" }
+alloy-sol-macro = { version = "0.8.4", features = ["json"] }
 
-alloy-contract = { version = "0.3.5", default-features = false }
-alloy-rpc-client = { version = "0.3.5", default-features = false, features = ["ws", "reqwest", "pubsub"] }
-alloy-rpc-types = { version = "0.3.5", default-features = false, features = ["eth"] }
-alloy-rpc-types-anvil = { version = "0.3.5", default-features = false }
-alloy-rpc-types-trace = { version = "0.3.5", default-features = false }
-alloy-rpc-types-engine = { version = "0.3.5", default-features = false }
-alloy-rpc-types-eth = { version = "0.3.5", default-features = false }
-alloy-genesis = { version = "0.3.5", default-features = false }
-alloy-node-bindings = { version = "0.3.5", default-features = false }
-alloy-provider = { version = "0.3.5", default-features = false, features = [
+alloy-contract = { version = "0.3.6", default-features = false }
+alloy-rpc-client = { version = "0.3.6", default-features = false, features = ["ws", "reqwest", "pubsub"] }
+alloy-rpc-types = { version = "0.3.6", default-features = false, features = ["eth"] }
+alloy-rpc-types-anvil = { version = "0.3.6", default-features = false }
+alloy-rpc-types-trace = { version = "0.3.6", default-features = false }
+alloy-rpc-types-engine = { version = "0.3.6", default-features = false }
+alloy-rpc-types-eth = { version = "0.3.6", default-features = false }
+alloy-genesis = { version = "0.3.6", default-features = false }
+alloy-node-bindings = { version = "0.3.6", default-features = false }
+alloy-provider = { version = "0.3.6", default-features = false, features = [
     "reqwest", "pubsub", "ws", "ipc", "anvil-api", "debug-api", "trace-api", "anvil-node"
 ] }
-alloy-eips = { version = "0.3.5", default-features = false }
-alloy-signer = { version = "0.3.5", default-features = false }
-alloy-signer-local = { version = "0.3.5", default-features = false }
-alloy-network = { version = "0.3.5", default-features = false }
-alloy-consensus = { version = "0.3.5", default-features = false }
-alloy-transport = { version = "0.3.5", default-features = false }
-alloy-pubsub = { version = "0.3.5", default-features = false }
-alloy-transport-ws = { version = "0.3.5", default-features = false }
-alloy-transport-ipc = { version = "0.3.5", default-features = false }
-alloy-transport-http = { version = "0.3.5", default-features = false }
-alloy-json-rpc = { version = "0.3.5", default-features = false }
+alloy-eips = { version = "0.3.6", default-features = false }
+alloy-signer = { version = "0.3.6", default-features = false }
+alloy-signer-local = { version = "0.3.6", default-features = false }
+alloy-network = { version = "0.3.6", default-features = false }
+alloy-consensus = { version = "0.3.6", default-features = false }
+alloy-transport = { version = "0.3.6", default-features = false }
+alloy-pubsub = { version = "0.3.6", default-features = false }
+alloy-transport-ws = { version = "0.3.6", default-features = false }
+alloy-transport-ipc = { version = "0.3.6", default-features = false }
+alloy-transport-http = { version = "0.3.6", default-features = false }
+alloy-json-rpc = { version = "0.3.6", default-features = false }
 
 # reth
 reth = { git = "https://github.com/paradigmxyz/reth" }
@@ -126,39 +126,39 @@ reth-node-api = { git = "https://github.com/paradigmxyz/reth" }
 reth-tracing = { git = "https://github.com/paradigmxyz/reth" }
 
 # revm
-revm = { version = "14.0.0", features = [
+revm = { version = "14.0.3", features = [
     "std",
     "secp256k1",
     "blst",
 ], default-features = false }
-revm-primitives = { version = "9.0.0", features = [
+revm-primitives = { version = "10.0.0", features = [
     "std",
 ], default-features = false }
 revm-inspectors = "0.7"
 
 ## loom
-loom-topology = { git="https://github.com/dexloom/loom.git" }
-loom-actors = { git="https://github.com/dexloom/loom.git" }
-loom-actors-macros = { git="https://github.com/dexloom/loom.git" }
-defi-blockchain = { git="https://github.com/dexloom/loom.git" }
-loom-utils = { git="https://github.com/dexloom/loom.git" }
-defi-actors = { git="https://github.com/dexloom/loom.git" }
-defi-events = { git="https://github.com/dexloom/loom.git" }
-defi-types = { git="https://github.com/dexloom/loom.git" }
-defi-entities = { git="https://github.com/dexloom/loom.git" }
-debug-provider = { git="https://github.com/dexloom/loom.git" }
+#loom-topology = { git="https://github.com/dexloom/loom.git" }
+#loom-actors = { git="https://github.com/dexloom/loom.git" }
+#loom-actors-macros = { git="https://github.com/dexloom/loom.git" }
+#defi-blockchain = { git="https://github.com/dexloom/loom.git" }
+#loom-utils = { git="https://github.com/dexloom/loom.git" }
+#defi-actors = { git="https://github.com/dexloom/loom.git" }
+#defi-events = { git="https://github.com/dexloom/loom.git" }
+#defi-types = { git="https://github.com/dexloom/loom.git" }
+#defi-entities = { git="https://github.com/dexloom/loom.git" }
+#debug-provider = { git="https://github.com/dexloom/loom.git" }
 
-## loom
-#loom-actors = { path = "../loom/crates/actors" }
-#loom-actors-macros = { path = "../loom/crates/actors-macros" }
-#loom-topology = { path = "../loom/crates/topology" }
-#defi-blockchain = { path = "../loom/crates/defi-blockchain" }
-#loom-utils = { path = "../loom/crates/utils" }
-#defi-actors = { path = "../loom/crates/defi-actors" }
-#defi-events = { path = "../loom/crates/defi-events" }
-#defi-types = { path = "../loom/crates/types" }
-#defi-entities = { path = "../loom/crates/defi-entities" }
-#debug-provider = { path = "../loom/crates/debug-provider" }
+# loom
+loom-actors = { path = "../loom/crates/actors" }
+loom-actors-macros = { path = "../loom/crates/actors-macros" }
+loom-topology = { path = "../loom/crates/topology" }
+defi-blockchain = { path = "../loom/crates/defi-blockchain" }
+loom-utils = { path = "../loom/crates/utils" }
+defi-actors = { path = "../loom/crates/defi-actors" }
+defi-events = { path = "../loom/crates/defi-events" }
+defi-types = { path = "../loom/crates/types" }
+defi-entities = { path = "../loom/crates/defi-entities" }
+debug-provider = { path = "../loom/crates/debug-provider" }
 
 [profile.test]
 debug = 1

@@ -16,6 +16,7 @@ chrono.workspace = true
 # async
 tokio.workspace = true
 tokio-util.workspace = true
+futures-util.workspace = true
 
 # config
 dotenv.workspace = true

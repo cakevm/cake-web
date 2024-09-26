@@ -1,4 +1,3 @@
-use crate::dto::pool::{PoolDetailsResponse, PoolResponse};
 use crate::dto::token::TokenDetailsResponse;
 use alloy_primitives::Address;
 use axum::extract::{Path, State};
