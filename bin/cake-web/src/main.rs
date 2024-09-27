@@ -15,6 +15,7 @@ use tracing_subscriber::util::SubscriberInitExt;
 use tracing_subscriber::{fmt, EnvFilter};
 
 use crate::arguments::{AppArgs, CakeArgs, Command};
+use defi_actors::{mempool_worker, NodeBlockActorConfig};
 use reth_node_ethereum::EthereumNode;
 use tokio::{signal, task};
 use tokio_util::sync::CancellationToken;
@@ -40,14 +41,14 @@ fn main() -> eyre::Result<()> {
 
                 let handle = builder
                     .node(EthereumNode::default())
-                    .install_exex("cake-exex", |node_ctx| loom::init(node_ctx, bc_clone))
+                    .install_exex("cake-exex", |node_ctx| loom::init(node_ctx, bc_clone, NodeBlockActorConfig::default()))
                     .launch()
                     .await?;
 
                 let mempool = handle.node.pool.clone();
                 let ipc_provider = ProviderBuilder::new().on_builtin(handle.node.config.rpc.ipcpath.as_str()).await?;
 
-                tokio::task::spawn(loom::mempool_worker(mempool, bc.clone()));
+                tokio::task::spawn(mempool_worker(mempool, bc.clone()));
                 let shutdown_token_clone = shutdown_token.clone();
                 if let Err(e) = loom::start_loom(ipc_provider, bc, topology_config, true, cake_args, shutdown_token_clone).await {
                     error!("{}", e);

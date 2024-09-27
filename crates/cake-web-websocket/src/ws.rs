@@ -5,6 +5,7 @@ use axum::{
 };
 use cake_web_dto::{BlockHeader, WebSocketMessage};
 use cake_web_state::AppState;
+use defi_types::ChainParameters;
 use std::net::SocketAddr;
 use tracing::{error, warn};
 
@@ -29,7 +30,7 @@ async fn on_upgrade(mut socket: WebSocket, _who: SocketAddr, app_state: AppState
             number: header.inner.header.number,
             timestamp: header.inner.header.timestamp,
             base_fee_per_gas: header.inner.header.base_fee_per_gas,
-            next_block_base_fee: header.inner.next_block_base_fee,
+            next_block_base_fee: ChainParameters::ethereum().calc_next_block_base_fee_from_header(&header.inner.header),
         });
         match serde_json::to_string(&ws_msg) {
             Ok(json) => {
