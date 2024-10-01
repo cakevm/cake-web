@@ -105,33 +105,33 @@ alloy-transport-http = { version = "0.4.0", default-features = false }
 alloy-json-rpc = { version = "0.4.0", default-features = false }
 
 # reth
-reth = { git = "https://github.com/paradigmxyz/reth" }
-reth-db = { git = "https://github.com/paradigmxyz/reth" }
-reth-primitives = { git = "https://github.com/paradigmxyz/reth" }
-reth-provider = { git = "https://github.com/paradigmxyz/reth", features = ["test-utils"]}
-reth-revm = { git = "https://github.com/paradigmxyz/reth" }
-reth-evm = { git = "https://github.com/paradigmxyz/reth" }
-reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth" }
-reth-rpc-types = { git = "https://github.com/paradigmxyz/reth" }
-reth-rpc-types-compat = { git = "https://github.com/paradigmxyz/reth" }
-reth-chainspec = { git = "https://github.com/paradigmxyz/reth" }
-reth-errors = { git = "https://github.com/paradigmxyz/reth" }
-reth-node-core = { git = "https://github.com/paradigmxyz/reth" }
-reth-payload-builder = { git = "https://github.com/paradigmxyz/reth" }
-reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth" }
-reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth" }
-reth-execution-types = { git = "https://github.com/paradigmxyz/reth"}
-reth-exex = { git = "https://github.com/paradigmxyz/reth" , features = ["serde"]  }
-reth-node-api = { git = "https://github.com/paradigmxyz/reth" }
-reth-tracing = { git = "https://github.com/paradigmxyz/reth" }
+reth = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-db = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-primitives = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-provider = { git = "https://github.com/cakevm/reth", branch="alloy-4", features = ["test-utils"]}
+reth-revm = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-evm = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-evm-ethereum = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-rpc-types = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-rpc-types-compat = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-chainspec = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-errors = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-node-core = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-payload-builder = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-payload-primitives = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-node-ethereum = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-execution-types = { git = "https://github.com/cakevm/reth", branch="alloy-4"}
+reth-exex = { git = "https://github.com/cakevm/reth", branch="alloy-4" , features = ["serde"]  }
+reth-node-api = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
+reth-tracing = { git = "https://github.com/cakevm/reth", branch="alloy-4" }
 
 # revm
-revm = { version = "14.0.3", features = [
+revm = { git = "https://github.com/cakevm/revm", branch = "alloy-4", features = [
     "std",
     "secp256k1",
     "blst",
 ], default-features = false }
-revm-primitives = { version = "10.0.0", features = [
+revm-primitives = { git = "https://github.com/cakevm/revm", branch = "alloy-4", features = [
     "std",
 ], default-features = false }
 revm-inspectors = "0.8.1"
