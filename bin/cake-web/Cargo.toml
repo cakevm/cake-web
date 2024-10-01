@@ -51,5 +51,6 @@ defi-actors.workspace = true
 defi-blockchain.workspace = true
 defi-events.workspace = true
 defi-types.workspace = true
+defi-pools.workspace = true
 debug-provider.workspace = true
 loom-topology.workspace = true

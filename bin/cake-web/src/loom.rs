@@ -1,36 +1,22 @@
 use std::future::Future;
-use std::sync::Arc;
 
-use alloy::network::primitives::BlockTransactions;
 use alloy::network::Ethereum;
-use alloy::primitives::{map::HashMap, Address, TxHash, U256};
+use alloy::primitives::Address;
 use alloy::providers::Provider;
-use alloy::rpc::types::{Block, BlockTransactionsKind};
 use alloy::transports::Transport;
 use axum::Router;
 use eyre::OptionExt;
-use reth::primitives::BlockNumHash;
-use reth::revm::db::states::StorageSlot;
-use reth::revm::db::{BundleAccount, StorageWithOriginalValues};
-use reth::rpc::eth::EthTxBuilder;
-use reth::transaction_pool::{BlobStore, Pool, TransactionOrdering, TransactionPool, TransactionValidator};
-use reth_execution_types::Chain;
-use reth_exex::{ExExContext, ExExEvent, ExExNotification};
+use reth_exex::ExExContext;
 use reth_node_api::FullNodeComponents;
-use reth_tracing::tracing::{error, info};
-use tokio::select;
+use reth_tracing::tracing::info;
 
 use crate::arguments::CakeArgs;
 use cake_web_actor::WebServerActor;
 use debug_provider::DebugProviderExt;
 use defi_actors::{loom_exex, BlockchainActors, NodeBlockActorConfig};
 use defi_blockchain::Blockchain;
-use defi_events::{BlockHeader, BlockLogs, BlockStateUpdate, MessageBlockHeader, MessageMempoolDataUpdate, NodeMempoolDataUpdate};
-use defi_types::{ChainParameters, GethStateUpdate, MempoolTx};
-use futures_util::stream::StreamExt;
-use loom_actors::Broadcaster;
+use defi_pools::PoolsConfig;
 use loom_topology::{BroadcasterConfig, EncoderConfig, TopologyConfig};
-use loom_utils::reth_types::append_all_matching_block_logs_sealed;
 use tokio_util::sync::CancellationToken;
 
 pub async fn init<Node: FullNodeComponents>(
@@ -92,7 +78,7 @@ where
         //.initialize_signers_with_encrypted_key(private_key_encrypted)? // initialize signer with encrypted key
         .with_block_history()? // collect blocks
         .start(WebServerActor::new(cake_args.host, router, shutdown_token).on_bc(bc.clone()))?
-        .with_pool_history_loader()?
+        .with_pool_history_loader(PoolsConfig::new())?
         .with_price_station()? // calculate price fo tokens
         .with_health_monitor_pools()? // monitor pools health to disable empty
         .with_health_monitor_state()? // monitor state health
@@ -104,8 +90,8 @@ where
         .with_market_state_preloader()? // preload contracts to market state
         //.with_nonce_and_balance_monitor()? // start monitoring balances of
          // load pools used in latest 10000 blocks
-        .with_pool_protocol_loader()? // load curve + steth + wsteth
-        .with_new_pool_loader()? // load new pools
+        //.with_curve_pool_protocol_loader()? // load curve + steth + wsteth
+        .with_new_pool_loader(PoolsConfig::new())? // load new pools
         .with_swap_path_merger()? // load merger for multiple swap paths
         .with_diff_path_merger()? // load merger for different swap paths
         .with_same_path_merger()? // load merger for same swap paths with different stuffing txes

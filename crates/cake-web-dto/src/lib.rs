@@ -13,6 +13,6 @@ pub enum WebSocketMessage {
 pub struct BlockHeader {
     pub number: u64,
     pub timestamp: u64,
-    pub base_fee_per_gas: Option<u128>,
-    pub next_block_base_fee: u128,
+    pub base_fee_per_gas: Option<u64>,
+    pub next_block_base_fee: u64,
 }

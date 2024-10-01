@@ -69,40 +69,40 @@ tower = { version = "0.5.1", features = ["util"] }
 tower-http = { version = "0.6.1", features = ["fs", "trace"] }
 
 # alloy
-alloy = { version = "0.3.6", features = ["full"] }
+alloy = { version = "0.4.0", features = ["full"] }
 alloy-primitives = { version = "0.8.4", features = ["serde"] }
 alloy-chains = "0.1.23"
 alloy-rlp = "0.3.4"
-alloy-trie = "0.5.1"
+alloy-trie = "0.6.0"
 
 alloy-dyn-abi = { version = "0.8.4", features = ["json"] }
 alloy-sol-types = { version = "0.8.4", features = ["json"] }
 alloy-sol-type-parser = { version = "0.8.4" }
 alloy-sol-macro = { version = "0.8.4", features = ["json"] }
 
-alloy-contract = { version = "0.3.6", default-features = false }
-alloy-rpc-client = { version = "0.3.6", default-features = false, features = ["ws", "reqwest", "pubsub"] }
-alloy-rpc-types = { version = "0.3.6", default-features = false, features = ["eth"] }
-alloy-rpc-types-anvil = { version = "0.3.6", default-features = false }
-alloy-rpc-types-trace = { version = "0.3.6", default-features = false }
-alloy-rpc-types-engine = { version = "0.3.6", default-features = false }
-alloy-rpc-types-eth = { version = "0.3.6", default-features = false }
-alloy-genesis = { version = "0.3.6", default-features = false }
-alloy-node-bindings = { version = "0.3.6", default-features = false }
-alloy-provider = { version = "0.3.6", default-features = false, features = [
+alloy-contract = { version = "0.4.0", default-features = false }
+alloy-rpc-client = { version = "0.4.0", default-features = false, features = ["ws", "reqwest", "pubsub"] }
+alloy-rpc-types = { version = "0.4.0", default-features = false, features = ["eth"] }
+alloy-rpc-types-anvil = { version = "0.4.0", default-features = false }
+alloy-rpc-types-trace = { version = "0.4.0", default-features = false }
+alloy-rpc-types-engine = { version = "0.4.0", default-features = false }
+alloy-rpc-types-eth = { version = "0.4.0", default-features = false }
+alloy-genesis = { version = "0.4.0", default-features = false }
+alloy-node-bindings = { version = "0.4.0", default-features = false }
+alloy-provider = { version = "0.4.0", default-features = false, features = [
     "reqwest", "pubsub", "ws", "ipc", "anvil-api", "debug-api", "trace-api", "anvil-node"
 ] }
-alloy-eips = { version = "0.3.6", default-features = false }
-alloy-signer = { version = "0.3.6", default-features = false }
-alloy-signer-local = { version = "0.3.6", default-features = false }
-alloy-network = { version = "0.3.6", default-features = false }
-alloy-consensus = { version = "0.3.6", default-features = false }
-alloy-transport = { version = "0.3.6", default-features = false }
-alloy-pubsub = { version = "0.3.6", default-features = false }
-alloy-transport-ws = { version = "0.3.6", default-features = false }
-alloy-transport-ipc = { version = "0.3.6", default-features = false }
-alloy-transport-http = { version = "0.3.6", default-features = false }
-alloy-json-rpc = { version = "0.3.6", default-features = false }
+alloy-eips = { version = "0.4.0", default-features = false }
+alloy-signer = { version = "0.4.0", default-features = false }
+alloy-signer-local = { version = "0.4.0", default-features = false }
+alloy-network = { version = "0.4.0", default-features = false }
+alloy-consensus = { version = "0.4.0", default-features = false }
+alloy-transport = { version = "0.4.0", default-features = false }
+alloy-pubsub = { version = "0.4.0", default-features = false }
+alloy-transport-ws = { version = "0.4.0", default-features = false }
+alloy-transport-ipc = { version = "0.4.0", default-features = false }
+alloy-transport-http = { version = "0.4.0", default-features = false }
+alloy-json-rpc = { version = "0.4.0", default-features = false }
 
 # reth
 reth = { git = "https://github.com/paradigmxyz/reth" }
@@ -134,7 +134,7 @@ revm = { version = "14.0.3", features = [
 revm-primitives = { version = "10.0.0", features = [
     "std",
 ], default-features = false }
-revm-inspectors = "0.7"
+revm-inspectors = "0.8.1"
 
 ## loom
 #loom-topology = { git="https://github.com/dexloom/loom.git" }
@@ -146,6 +146,7 @@ revm-inspectors = "0.7"
 #defi-events = { git="https://github.com/dexloom/loom.git" }
 #defi-types = { git="https://github.com/dexloom/loom.git" }
 #defi-entities = { git="https://github.com/dexloom/loom.git" }
+#defi-pools = { git="https://github.com/dexloom/loom.git" }
 #debug-provider = { git="https://github.com/dexloom/loom.git" }
 
 # loom
@@ -158,6 +159,7 @@ defi-actors = { path = "../loom/crates/defi-actors" }
 defi-events = { path = "../loom/crates/defi-events" }
 defi-types = { path = "../loom/crates/types" }
 defi-entities = { path = "../loom/crates/defi-entities" }
+defi-pools = { path = "../loom/crates/defi-pools" }
 debug-provider = { path = "../loom/crates/debug-provider" }
 
 [profile.test]
