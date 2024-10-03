@@ -7,7 +7,6 @@ use clap::{CommandFactory, FromArgMatches, Parser};
 use defi_blockchain::Blockchain;
 use dotenv::dotenv;
 use loom_topology::TopologyConfig;
-use reth::args::utils::DefaultChainSpecParser;
 use std::env;
 use std::time::Duration;
 use tracing_subscriber::layer::SubscriberExt;
@@ -16,6 +15,7 @@ use tracing_subscriber::{fmt, EnvFilter};
 
 use crate::arguments::{AppArgs, CakeArgs, Command};
 use defi_actors::{mempool_worker, NodeBlockActorConfig};
+use reth_node_core::args::utils::EthereumChainSpecParser;
 use reth_node_ethereum::EthereumNode;
 use tokio::{signal, task};
 use tokio_util::sync::CancellationToken;
@@ -33,7 +33,7 @@ fn main() -> eyre::Result<()> {
 
     match app_args.command {
         Command::Node(_) => {
-            reth::cli::Cli::<DefaultChainSpecParser, CakeArgs>::parse().run(|builder, cake_args: CakeArgs| async move {
+            reth::cli::Cli::<EthereumChainSpecParser, CakeArgs>::parse().run(|builder, cake_args: CakeArgs| async move {
                 info!("Loading config from {}", cake_args.loom_config);
                 let topology_config = TopologyConfig::load_from_file(cake_args.loom_config.clone())?;
                 let bc = Blockchain::new(builder.config().chain.chain.id());

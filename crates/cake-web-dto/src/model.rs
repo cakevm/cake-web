@@ -1,5 +1,5 @@
 use serde::Deserialize;
-use utoipa::{IntoParams, ToSchema};
+use utoipa::IntoParams;
 
 #[derive(Debug, Deserialize, IntoParams)]
 pub struct Pagination {
