@@ -38,7 +38,7 @@ pub async fn pools(
         .await
         .pools()
         .iter()
-        .filter(|(address, pool)| match &filter.protocol {
+        .filter(|(_, pool)| match &filter.protocol {
             None => true,
             Some(protocol) => pool.pool.get_protocol() == protocol.into(),
         })
@@ -64,7 +64,7 @@ pub async fn pools(
         .await
         .pools()
         .iter()
-        .filter(|(address, pool)| match &filter.protocol {
+        .filter(|(_, pool)| match &filter.protocol {
             None => true,
             Some(protocol) => pool.pool.get_protocol() == protocol.into(),
         })

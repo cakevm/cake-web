@@ -76,7 +76,7 @@ pub async fn refresh(
     let decode_key = DecodingKey::from_secret(refresh_secret.as_ref());
     let encode_key = EncodingKey::from_secret(refresh_secret.as_ref());
 
-    let conn = app_state.pool.get().await.map_err(internal_error)?;
+    let _conn = app_state.pool.get().await.map_err(internal_error)?;
     let claims = Claims {
         sub: "jkfajfafghjjfn".to_string(),
         username: "ezesunday".to_string(),

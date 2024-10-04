@@ -10,7 +10,7 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.81"
 exclude = [".github/"]
-
+license = "Apache-2.0"
 
 [workspace.dependencies]
 cake-web-db = { path = "crates/cake-web-db" }
@@ -30,7 +30,7 @@ chrono-tz = "0.10.0"
 uuid = { version = "1.8.0", features = ["v4", "serde"] }
 
 # config
-dotenv = "0.15.0"
+dotenvy = "0.15.7"
 
 # async
 tokio = { version = "1.36.0", features = ["full"] }
@@ -105,24 +105,24 @@ alloy-transport-http = { version = "0.4.2", default-features = false }
 alloy-json-rpc = { version = "0.4.2", default-features = false }
 
 # reth
-reth = { git = "https://github.com/paradigmxyz/reth" }
-reth-db = { git = "https://github.com/paradigmxyz/reth" }
-reth-primitives = { git = "https://github.com/paradigmxyz/reth" }
-reth-provider = { git = "https://github.com/paradigmxyz/reth", features = ["test-utils"]}
-reth-revm = { git = "https://github.com/paradigmxyz/reth" }
-reth-evm = { git = "https://github.com/paradigmxyz/reth" }
-reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth" }
-reth-rpc-types-compat = { git = "https://github.com/paradigmxyz/reth" }
-reth-chainspec = { git = "https://github.com/paradigmxyz/reth" }
-reth-errors = { git = "https://github.com/paradigmxyz/reth" }
-reth-node-core = { git = "https://github.com/paradigmxyz/reth" }
-reth-payload-builder = { git = "https://github.com/paradigmxyz/reth" }
-reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth" }
-reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth" }
-reth-execution-types = { git = "https://github.com/paradigmxyz/reth"}
-reth-exex = { git = "https://github.com/paradigmxyz/reth" , features = ["serde"]  }
-reth-node-api = { git = "https://github.com/paradigmxyz/reth" }
-reth-tracing = { git = "https://github.com/paradigmxyz/reth" }
+reth = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-db = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-provider = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8", features = ["test-utils"]}
+reth-revm = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-evm = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-rpc-types-compat = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-chainspec = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-errors = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-node-core = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-payload-builder = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-execution-types = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8"}
+reth-exex = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8", features = ["serde"]  }
+reth-node-api = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth-tracing = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
 
 # revm
 revm = { version = "14.0.3", features = [
@@ -136,30 +136,30 @@ revm-primitives = { version = "10.0.0", features = [
 revm-inspectors = "0.8.1"
 
 ## loom
-#loom-topology = { git="https://github.com/dexloom/loom.git" }
-#loom-actors = { git="https://github.com/dexloom/loom.git" }
-#loom-actors-macros = { git="https://github.com/dexloom/loom.git" }
-#defi-blockchain = { git="https://github.com/dexloom/loom.git" }
-#loom-utils = { git="https://github.com/dexloom/loom.git" }
-#defi-actors = { git="https://github.com/dexloom/loom.git" }
-#defi-events = { git="https://github.com/dexloom/loom.git" }
-#defi-types = { git="https://github.com/dexloom/loom.git" }
-#defi-entities = { git="https://github.com/dexloom/loom.git" }
-#defi-pools = { git="https://github.com/dexloom/loom.git" }
-#debug-provider = { git="https://github.com/dexloom/loom.git" }
+loom-topology = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+loom-actors = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+loom-actors-macros = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-blockchain = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+loom-utils = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-actors = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-events = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-types = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-entities = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+defi-pools = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+debug-provider = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
 
 # loom
-loom-actors = { path = "../loom/crates/actors" }
-loom-actors-macros = { path = "../loom/crates/actors-macros" }
-loom-topology = { path = "../loom/crates/topology" }
-defi-blockchain = { path = "../loom/crates/defi-blockchain" }
-loom-utils = { path = "../loom/crates/utils" }
-defi-actors = { path = "../loom/crates/defi-actors" }
-defi-events = { path = "../loom/crates/defi-events" }
-defi-types = { path = "../loom/crates/types" }
-defi-entities = { path = "../loom/crates/defi-entities" }
-defi-pools = { path = "../loom/crates/defi-pools" }
-debug-provider = { path = "../loom/crates/debug-provider" }
+#loom-actors = { path = "../loom/crates/actors" }
+#loom-actors-macros = { path = "../loom/crates/actors-macros" }
+#loom-topology = { path = "../loom/crates/topology" }
+#defi-blockchain = { path = "../loom/crates/defi-blockchain" }
+#loom-utils = { path = "../loom/crates/utils" }
+#defi-actors = { path = "../loom/crates/defi-actors" }
+#defi-events = { path = "../loom/crates/defi-events" }
+#defi-types = { path = "../loom/crates/types" }
+#defi-entities = { path = "../loom/crates/defi-entities" }
+#defi-pools = { path = "../loom/crates/defi-pools" }
+#debug-provider = { path = "../loom/crates/debug-provider" }
 
 [profile.test]
 debug = 1

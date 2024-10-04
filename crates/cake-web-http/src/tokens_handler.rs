@@ -21,8 +21,8 @@ use cake_web_state::AppState;
     )
 )]
 pub async fn token(
-    State(app_state): State<AppState>,
-    Path(address): Path<String>,
+    State(_app_state): State<AppState>,
+    Path(_address): Path<String>,
 ) -> Result<Json<TokenDetailsResponse>, (StatusCode, String)> {
     Ok(Json(TokenDetailsResponse { address: Address::ZERO, name: "Test".to_string() }))
 }

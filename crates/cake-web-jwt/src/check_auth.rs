@@ -6,6 +6,7 @@ use axum_extra::{
 };
 use jsonwebtoken::{decode, DecodingKey, Validation};
 
+#[allow(dead_code)]
 pub async fn verify_user(
     mut req: Request<Body>,
     decode_key: &DecodingKey,

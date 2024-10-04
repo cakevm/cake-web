@@ -8,8 +8,8 @@ use utoipa::ToSchema;
 #[derive(Debug, Clone)]
 pub enum AuthError {
     WrongCredentials,
-    MissingCredentials,
-    TokenCreation,
+    //MissingCredentials,
+    //TokenCreation,
     InvalidToken,
     InternalServerError,
 }
@@ -18,8 +18,8 @@ impl IntoResponse for AuthError {
     fn into_response(self) -> Response {
         let (status, error_message) = match self {
             AuthError::WrongCredentials => (StatusCode::UNAUTHORIZED, "Wrong credentials"),
-            AuthError::MissingCredentials => (StatusCode::BAD_REQUEST, "Missing credentials"),
-            AuthError::TokenCreation => (StatusCode::INTERNAL_SERVER_ERROR, "Token creation error"),
+            //AuthError::MissingCredentials => (StatusCode::BAD_REQUEST, "Missing credentials"),
+            //AuthError::TokenCreation => (StatusCode::INTERNAL_SERVER_ERROR, "Token creation error"),
             AuthError::InvalidToken => (StatusCode::FORBIDDEN, "Invalid token"),
             AuthError::InternalServerError => (StatusCode::INTERNAL_SERVER_ERROR, "Internal server error"),
         };
@@ -50,7 +50,7 @@ pub struct RefreshResponse {
 #[derive(Debug, Deserialize, ToSchema)]
 pub struct LoginRequest {
     pub email: String,
-    pub password: String,
+    //pub password: String,
 }
 
 #[derive(Debug, Serialize, ToSchema)]

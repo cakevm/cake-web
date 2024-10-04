@@ -4,6 +4,7 @@ version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 exclude.workspace = true
+license.workspace = true
 
 [dependencies]
 cake-web-db.workspace = true
@@ -19,7 +20,7 @@ tokio-util.workspace = true
 futures-util.workspace = true
 
 # config
-dotenv.workspace = true
+dotenvy.workspace = true
 clap.workspace = true
 
 # tracing + error handling

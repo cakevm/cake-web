@@ -1,4 +1,4 @@
-.PHONY: build run test clean fmt fix clippy
+.PHONY: build run test clean fmt fmt-check deny-check fix clippy
 
 build:
 	cargo build --all
@@ -18,8 +18,14 @@ clean:
 fmt:
 	cargo fmt --all
 
+fmt-check:
+	cargo fmt --all --check
+
+deny-check:
+	cargo deny --all-features check
+
 fix:
 	cargo fix --all
 
 clippy:
-	cargo clippy --all --all-features --fix
+	cargo clippy --all-targets --all-features -- -D warnings

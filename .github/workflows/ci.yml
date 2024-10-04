@@ -1,0 +1,57 @@
+name: Cake Web CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    if: github.repository == 'cakevm/cake-web'
+    name: make test
+    runs-on: ubuntu-latest
+    env:
+      RUST_LOG: info
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - run: make test
+      - run: make swap-test-all
+
+  fmt:
+    if: github.repository == 'cakevm/cake-web'
+    name: make fmt-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - run: make fmt-check
+
+  clippy:
+    if: github.repository == 'cakevm/cake-web'
+    name: make clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@clippy
+      - uses: Swatinem/rust-cache@v2
+
+      - run: make clippy
+
+  deny:
+    if: github.repository == 'cakevm/cake-web'
+    name: cargo deny check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+          log-level: warn
+          command: check
+          arguments: --all-features

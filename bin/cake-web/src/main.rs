@@ -5,7 +5,6 @@ use alloy::providers::{ProviderBuilder, WsConnect};
 use alloy::rpc::client::ClientBuilder;
 use clap::{CommandFactory, FromArgMatches, Parser};
 use defi_blockchain::Blockchain;
-use dotenv::dotenv;
 use loom_topology::TopologyConfig;
 use std::env;
 use std::time::Duration;
@@ -24,7 +23,7 @@ use tracing::{error, info};
 fn main() -> eyre::Result<()> {
     println!("The current directory is {}", env::current_dir()?.display());
     let shutdown_token = CancellationToken::new();
-    dotenv().ok();
+    dotenvy::dotenv()?;
     env::set_var("RUST_LOG", "info");
     tracing_subscriber::registry().with(fmt::layer()).with(EnvFilter::from_default_env()).init();
 
