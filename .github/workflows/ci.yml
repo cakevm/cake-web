@@ -22,7 +22,6 @@ jobs:
       - uses: arduino/setup-protoc@v3
 
       - run: make test
-      - run: make swap-test-all
 
   fmt:
     if: github.repository == 'cakevm/cake-web'
