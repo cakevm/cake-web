@@ -1,8 +1,8 @@
 mod arguments;
 mod loom;
 
-use alloy::providers::{ProviderBuilder, WsConnect};
-use alloy::rpc::client::ClientBuilder;
+use alloy_provider::{ProviderBuilder, WsConnect};
+use alloy_rpc_client::ClientBuilder;
 use clap::{CommandFactory, FromArgMatches, Parser};
 use defi_blockchain::Blockchain;
 use loom_topology::TopologyConfig;
@@ -14,7 +14,7 @@ use tracing_subscriber::{fmt, EnvFilter};
 
 use crate::arguments::{AppArgs, CakeArgs, Command};
 use defi_actors::{mempool_worker, NodeBlockActorConfig};
-use reth_node_core::args::utils::EthereumChainSpecParser;
+use reth::chainspec::EthereumChainSpecParser;
 use reth_node_ethereum::EthereumNode;
 use tokio::{signal, task};
 use tokio_util::sync::CancellationToken;
@@ -40,7 +40,9 @@ fn main() -> eyre::Result<()> {
 
                 let handle = builder
                     .node(EthereumNode::default())
-                    .install_exex("cake-exex", |node_ctx| loom::init(node_ctx, bc_clone, NodeBlockActorConfig::default()))
+                    .install_exex("cake-exex", |node_ctx| {
+                        loom::init(node_ctx, bc_clone, NodeBlockActorConfig::all_disabled().with_block_header().with_block_with_tx())
+                    })
                     .launch()
                     .await?;
 

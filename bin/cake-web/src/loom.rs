@@ -1,9 +1,9 @@
 use std::future::Future;
 
-use alloy::network::Ethereum;
-use alloy::primitives::Address;
-use alloy::providers::Provider;
-use alloy::transports::Transport;
+use alloy_network::Ethereum;
+use alloy_primitives::Address;
+use alloy_provider::Provider;
+use alloy_transport::Transport;
 use axum::Router;
 use eyre::OptionExt;
 use reth_exex::ExExContext;
@@ -68,7 +68,7 @@ where
     let mut bc_actors = BlockchainActors::new(provider.clone(), bc.clone(), relays);
 
     if !is_exex {
-        bc_actors.with_block_events(NodeBlockActorConfig::new().with_block_header().with_block_with_tx())?;
+        bc_actors.with_block_events(NodeBlockActorConfig::all_disabled().with_block_header().with_block_with_tx())?;
         //.with_remote_mempool(provider.clone())?;
     }
     let router = Router::new();

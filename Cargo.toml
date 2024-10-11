@@ -69,16 +69,15 @@ tower = { version = "0.5.1", features = ["util"] }
 tower-http = { version = "0.6.1", features = ["fs", "trace"] }
 
 # alloy
-alloy = { version = "0.4.2", features = ["full"] }
-alloy-primitives = { version = "0.8.4", features = ["serde"] }
+alloy-primitives = { version = "0.8.7", features = ["serde"] }
 alloy-chains = "0.1.23"
 alloy-rlp = "0.3.4"
 alloy-trie = "0.6.0"
 
-alloy-dyn-abi = { version = "0.8.4", features = ["json"] }
-alloy-sol-types = { version = "0.8.4", features = ["json"] }
-alloy-sol-type-parser = { version = "0.8.4" }
-alloy-sol-macro = { version = "0.8.4", features = ["json"] }
+alloy-dyn-abi = { version = "0.8.7", features = ["json"] }
+alloy-sol-types = { version = "0.8.7", features = ["json"], default-features = false }
+alloy-sol-type-parser = { version = "0.8.7" }
+alloy-sol-macro = { version = "0.8.7", features = ["json"] }
 
 alloy-contract = { version = "0.4.2", default-features = false }
 alloy-rpc-client = { version = "0.4.2", default-features = false, features = ["ws", "reqwest", "pubsub"] }
@@ -105,24 +104,24 @@ alloy-transport-http = { version = "0.4.2", default-features = false }
 alloy-json-rpc = { version = "0.4.2", default-features = false }
 
 # reth
-reth = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-db = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-provider = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8", features = ["test-utils"]}
-reth-revm = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-evm = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-rpc-types-compat = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-chainspec = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-errors = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-node-core = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-payload-builder = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-execution-types = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8"}
-reth-exex = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8", features = ["serde"]  }
-reth-node-api = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
-reth-tracing = { git = "https://github.com/paradigmxyz/reth", tag="v1.0.8" }
+reth = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-db = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-provider = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0", features = ["test-utils"]}
+reth-revm = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-evm = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-rpc-types-compat = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-chainspec = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-errors = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-node-core = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-payload-builder = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-execution-types = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0"}
+reth-exex = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0", features = ["serde"]  }
+reth-node-api = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
+reth-tracing = { git = "https://github.com/paradigmxyz/reth", tag="v1.1.0" }
 
 # revm
 revm = { version = "14.0.3", features = [
@@ -136,17 +135,17 @@ revm-primitives = { version = "10.0.0", features = [
 revm-inspectors = "0.8.1"
 
 ## loom
-loom-topology = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-loom-actors = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-loom-actors-macros = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-blockchain = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-loom-utils = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-actors = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-events = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-types = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-entities = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-defi-pools = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
-debug-provider = { git="https://github.com/dexloom/loom.git", rev="1c8e318" }
+loom-topology = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+loom-actors = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+loom-actors-macros = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-blockchain = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+loom-utils = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-actors = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-events = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-types = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-entities = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+defi-pools = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
+debug-provider = { git="https://github.com/dexloom/loom.git", rev="b25264c" }
 
 # loom
 #loom-actors = { path = "../loom/crates/actors" }

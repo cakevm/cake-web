@@ -49,6 +49,7 @@ pub enum PoolClass {
     LidoStEth,
     LidoWstEth,
     RocketPool,
+    Custom(u64),
 }
 impl From<defi_entities::PoolClass> for PoolClass {
     fn from(pool_class: defi_entities::PoolClass) -> Self {
@@ -60,6 +61,7 @@ impl From<defi_entities::PoolClass> for PoolClass {
             defi_entities::PoolClass::LidoStEth => PoolClass::LidoStEth,
             defi_entities::PoolClass::LidoWstEth => PoolClass::LidoWstEth,
             defi_entities::PoolClass::RocketPool => PoolClass::RocketPool,
+            defi_entities::PoolClass::Custom(id) => PoolClass::Custom(id),
         }
     }
 }
@@ -86,6 +88,8 @@ pub enum PoolProtocol {
     LidoStEth,
     LidoWstEth,
     RocketEth,
+    OgPepe,
+    Custom(u64),
 }
 impl From<defi_entities::PoolProtocol> for PoolProtocol {
     fn from(protocol: defi_entities::PoolProtocol) -> Self {
@@ -109,6 +113,8 @@ impl From<defi_entities::PoolProtocol> for PoolProtocol {
             defi_entities::PoolProtocol::LidoStEth => PoolProtocol::LidoStEth,
             defi_entities::PoolProtocol::LidoWstEth => PoolProtocol::LidoWstEth,
             defi_entities::PoolProtocol::RocketEth => PoolProtocol::RocketEth,
+            defi_entities::PoolProtocol::OgPepe => PoolProtocol::OgPepe,
+            defi_entities::PoolProtocol::Custom(id) => PoolProtocol::Custom(id),
         }
     }
 }
@@ -135,6 +141,8 @@ impl From<&PoolProtocol> for defi_entities::PoolProtocol {
             PoolProtocol::LidoStEth => defi_entities::PoolProtocol::LidoStEth,
             PoolProtocol::LidoWstEth => defi_entities::PoolProtocol::LidoWstEth,
             PoolProtocol::RocketEth => defi_entities::PoolProtocol::RocketEth,
+            PoolProtocol::OgPepe => defi_entities::PoolProtocol::OgPepe,
+            PoolProtocol::Custom(id) => defi_entities::PoolProtocol::Custom(*id),
         }
     }
 }
